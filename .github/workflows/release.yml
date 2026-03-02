@@ -54,7 +54,7 @@ jobs:
               changelog = $env:CHANGELOG
               description = "Jellyfin bgm.tv 数据源插件，用于拉取中文番剧信息及图片。"
               guid = "1d88c399-c0bb-4cad-81a8-1df8783b79ba"
-              name = "Bangumi"
+              name = "Bangumi (Forked)"
               overview = "bgm.tv metadata provider for Jellyfin"
               owner = "Astatine-213-Tian"
               targetAbi = "${{ steps.abi-version.outputs.version }}"
@@ -131,7 +131,7 @@ jobs:
             category = "Metadata"
             description = "bgm.tv metadata provider for Jellyfin"
             guid = "1d88c399-c0bb-4cad-81a8-1df8783b79ba"
-            name = "Bangumi"
+            name = "Bangumi (Forked)"
             overview = "Jellyfin bgm.tv 数据源插件，用于拉取中文番剧信息及图片。"
             imageUrl = "$PagesUrl/poster.png"
             owner = "Astatine-213-Tian"
