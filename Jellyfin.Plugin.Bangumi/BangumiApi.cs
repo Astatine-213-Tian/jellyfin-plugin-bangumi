@@ -238,8 +238,13 @@ public partial class BangumiApi
     {
         if (id <= 0) return null;
 
+        var includeMovies = Plugin.Instance?.Configuration?.IncludeMoviesInSeasonChain ?? false;
+
         bool SeriesSequelUnqualified(Subject subject)
         {
+            if (includeMovies)
+                return false;
+
             return subject.Platform == SubjectPlatform.Movie
                    || subject.Platform == SubjectPlatform.OVA
                    || subject.GenreTags.Contains("OVA")

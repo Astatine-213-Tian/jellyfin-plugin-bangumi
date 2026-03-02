@@ -111,13 +111,30 @@ public class SeasonProvider(BangumiApi api, Logger<EpisodeProvider> log, ILibrar
                 {
                     log.Error("Error occurred while guessing season id by name: {Error}", ex);
                 }
+
+                // If name-based search failed, find the nearest previous season with a valid Bangumi ID
+                if (subjectId <= 0)
+                {
+                    previousSeason = series.Children
+                        .Where(x => x.IndexNumber < info.IndexNumber &&
+                                    int.TryParse(x.GetProviderId(Constants.ProviderName), out var id) && id > 0)
+                        .MaxBy(x => x.IndexNumber);
+                }
             }
 
             if (int.TryParse(previousSeason?.GetProviderId(Constants.ProviderName), out var previousSeasonId) &&
-                previousSeasonId > 0)
+                previousSeasonId > 0 && subjectId <= 0)
             {
-                log.Info("Guessing season id from previous season #{ID}", previousSeasonId);
-                subject = await api.SearchNextSubject(previousSeasonId, cancellationToken);
+                var gap = (info.IndexNumber ?? 1) - (previousSeason!.IndexNumber ?? 0);
+                log.Info("Guessing season id from previous season #{ID} with gap {Gap}", previousSeasonId, gap);
+                var currentId = previousSeasonId;
+                for (var i = 0; i < gap; i++)
+                {
+                    subject = await api.SearchNextSubject(currentId, cancellationToken);
+                    if (subject == null) break;
+                    currentId = subject.Id;
+                }
+
                 if (subject != null)
                 {
                     log.Info("Guessed result: {Name} (#{ID})", subject.Name, subject.Id);

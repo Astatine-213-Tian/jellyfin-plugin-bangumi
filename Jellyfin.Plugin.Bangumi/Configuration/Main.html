@@ -167,6 +167,15 @@
                         本插件使用遍历搜索关联条目的方式匹配TV动画季度。大部分情况下只需一次搜索即可完成，但某些条目可能需要多次搜索才能匹配到下一季。默认最多搜索两次，如果某些季度匹配错误，您可以尝试增加最大搜索次数。
                     </div>
                 </div>
+                <div class="checkboxContainer checkboxContainer-withDescription">
+                    <label class="emby-checkbox-label">
+                        <input id="IncludeMoviesInSeasonChain" is="emby-checkbox" type="checkbox"/>
+                        <span>在季度链中包含剧场版和 OVA</span>
+                    </label>
+                    <div class="fieldDescription">
+                        默认情况下，季度搜索会跳过剧场版和 OVA 条目。启用此选项后，剧场版和 OVA 将被视为正常季度参与季度链匹配，适合将系列中的剧场版和 OVA 作为独立季度管理的场景。
+                    </div>
+                </div>
                 <div class="selectContainer">
                     <label class="selectLabel" for="RatingUpdateMinInterval">更新评分频率</label>
                     <select class="emby-select-withcolor emby-select" id="RatingUpdateMinInterval" is="emby-select">

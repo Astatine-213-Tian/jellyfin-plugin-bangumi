@@ -40,6 +40,8 @@ public class PluginConfiguration : BasePluginConfiguration
 
     public int SeasonGuessMaxSearchCount { get; set; } = 2;
 
+    public bool IncludeMoviesInSeasonChain { get; set; } = false;
+
     public bool SortByFuzzScore { get; set; } = false;
 
     public bool RefreshRecentEpisodeWhenArchiveUpdate { get; set; } = false;
