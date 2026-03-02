@@ -53,7 +53,7 @@ jobs:
               category = "Metadata"
               changelog = $env:CHANGELOG
               description = "Jellyfin bgm.tv 数据源插件，用于拉取中文番剧信息及图片。"
-              guid = "41b59f1b-a6cf-474a-b416-785379cbd856"
+              guid = "1d88c399-c0bb-4cad-81a8-1df8783b79ba"
               name = "Bangumi"
               overview = "bgm.tv metadata provider for Jellyfin"
               owner = "Astatine-213-Tian"
@@ -130,7 +130,7 @@ jobs:
           ConvertTo-Json -Compress -Depth 5 @(@{
             category = "Metadata"
             description = "bgm.tv metadata provider for Jellyfin"
-            guid = "41b59f1b-a6cf-474a-b416-785379cbd856"
+            guid = "1d88c399-c0bb-4cad-81a8-1df8783b79ba"
             name = "Bangumi"
             overview = "Jellyfin bgm.tv 数据源插件，用于拉取中文番剧信息及图片。"
             imageUrl = "$PagesUrl/poster.png"

@@ -8,7 +8,7 @@ public static class Constants
 
     public const string PluginName = "Bangumi Lite";
 
-    public const string PluginGuid = "41b59f1b-a6cf-474a-b416-785379cbd856";
+    public const string PluginGuid = "1d88c399-c0bb-4cad-81a8-1df8783b79ba";
 
     public const string Language = "zh";
 
